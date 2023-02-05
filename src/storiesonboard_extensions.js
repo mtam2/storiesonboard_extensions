@@ -3,17 +3,14 @@ function addCopyPermalinkButtonToSidebar() {
   if (personaLink && !document.querySelector("#sobe__copy-permalink-button")) {
     var sidebarContainer = document.querySelector(".card-body-right");
     var roadmapCardId = personaLink.id.replace("card-persona-menu-", "");
-    var button = `
-      <br>
-      <button
-        type="button"
-        class="sobe__button"
-        id="sobe__copy-permalink-button"
-      >
-        Copy permalink
-      </button>
-    `;
-    sidebarContainer.innerHTML = sidebarContainer.innerHTML + button;
+    var button = Object.assign(document.createElement("button"), {
+      type: "button",
+      className: "sobe__button",
+      id: "sobe__copy-permalink-button",
+      textContent: "Copy permalink",
+    });
+    sidebarContainer.appendChild(document.createElement("br"));
+    sidebarContainer.appendChild(button);
     _addClickListenerToCopyPermalinkButton(roadmapCardId);
   }
 }
