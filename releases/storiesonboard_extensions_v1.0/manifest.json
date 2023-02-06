@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "StoriesOnBoard Extensions",
+  "version": "1.0",
+  "description": "Custom features for storiesonboard.com",
+  "icons": {
+    "48": "icons/sobe_48x48_icon.png"
+  },
+  "permissions": [
+    "clipboardWrite"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.storiesonboard.com/*"],
+      "js": ["storiesonboard_extensions.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "update_url": "https://github.com/mtam2/storiesonboard_extensions/updates.json"
+    }
+  }
+}
